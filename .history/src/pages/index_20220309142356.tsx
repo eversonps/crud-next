@@ -16,7 +16,7 @@ export default function Home() {
     novoCliente,
     salvarCliente,
     formularioVisivel,
-    exibirForm
+    exibirTabela
   } = useClientes()
   
   return (
@@ -30,7 +30,7 @@ export default function Home() {
             <Tabela clientes={clientes} clienteSelecionado={selecionarCliente} clienteExcluido={excluirCliente}></Tabela>
           </>
         ) : (
-          <Formulario cliente={cliente} cancelado={exibirForm} clienteMudou={salvarCliente}></Formulario>
+          <Formulario cliente={cliente} cancelado={exibirTabela} clienteMudou={salvarCliente}></Formulario>
         )}
       </Layout>
     </div>

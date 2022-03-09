@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import ClienteRepositorio from "../core/ClienteRepositorio"
 import ColecaoCliente from "../backend/db/ColecaoCliente"
 import { useClientes } from "../hooks/useClientes"
+import useTabelaOuForm from "../hooks/useTabelaOuForm"
 
 export default function Home() {
   const {selecionarCliente, 
@@ -14,10 +15,10 @@ export default function Home() {
     cliente, 
     clientes, 
     novoCliente,
-    salvarCliente,
-    formularioVisivel,
-    exibirForm
+    salvarCliente
   } = useClientes()
+
+  const {formularioVisivel, tabelaVisivel, exibirForm, exibirTabela} = useTabelaOuForm()
   
   return (
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500 text-white">
@@ -30,7 +31,7 @@ export default function Home() {
             <Tabela clientes={clientes} clienteSelecionado={selecionarCliente} clienteExcluido={excluirCliente}></Tabela>
           </>
         ) : (
-          <Formulario cliente={cliente} cancelado={exibirForm} clienteMudou={salvarCliente}></Formulario>
+          <Formulario cliente={cliente} cancelado={exibirTabela} clienteMudou={salvarCliente}></Formulario>
         )}
       </Layout>
     </div>

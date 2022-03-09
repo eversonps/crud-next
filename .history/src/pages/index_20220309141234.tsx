@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import ClienteRepositorio from "../core/ClienteRepositorio"
 import ColecaoCliente from "../backend/db/ColecaoCliente"
 import { useClientes } from "../hooks/useClientes"
+import useTabelaOuForm from "../hooks/useTabelaOuForm"
 
 export default function Home() {
   const {selecionarCliente, 
@@ -16,7 +17,7 @@ export default function Home() {
     novoCliente,
     salvarCliente,
     formularioVisivel,
-    exibirForm
+    exibirTabela
   } = useClientes()
   
   return (
@@ -30,7 +31,7 @@ export default function Home() {
             <Tabela clientes={clientes} clienteSelecionado={selecionarCliente} clienteExcluido={excluirCliente}></Tabela>
           </>
         ) : (
-          <Formulario cliente={cliente} cancelado={exibirForm} clienteMudou={salvarCliente}></Formulario>
+          <Formulario cliente={cliente} cancelado={exibirTabela} clienteMudou={salvarCliente}></Formulario>
         )}
       </Layout>
     </div>

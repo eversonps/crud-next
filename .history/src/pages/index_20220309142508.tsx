@@ -16,7 +16,7 @@ export default function Home() {
     novoCliente,
     salvarCliente,
     formularioVisivel,
-    exibirForm
+    exibirTabela
   } = useClientes()
   
   return (
